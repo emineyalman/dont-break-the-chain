@@ -1,181 +1,170 @@
 .statistics-container {
-  padding: 3rem;
+  padding: clamp(1rem, 3vw, 3rem);
   background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-  border-radius: 25px;
+  border-radius: clamp(15px, 2vw, 25px);
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
   max-width: 1200px;
   margin: 0 auto;
+  width: 95%;
+  overflow: hidden;
 }
 
 .stats-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: clamp(2rem, 4vw, 4rem);
 }
 
 .stats-header h2 {
-  font-size: 3.5rem;
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 800;
   background: linear-gradient(45deg, #FF1493, #FF69B4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
+  word-wrap: break-word;
 }
 
 .stats-subtitle {
-  font-size: 1.5rem;
-  color: rgba(255, 255, 255, 0.8);
-  font-weight: 500;
+  font-size: clamp(1rem, 2vw, 1.5rem);
 }
 
 .stats-summary {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2.5rem;
-  margin-bottom: 4rem;
-  padding: 0 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+  gap: clamp(1rem, 2vw, 2.5rem);
+  margin-bottom: clamp(2rem, 4vw, 4rem);
+  padding: 0 clamp(0.5rem, 1vw, 2rem);
 }
 
 .stat-card {
-  background: rgba(255, 255, 255, 0.08);
-  padding: 2rem;
-  border-radius: 20px;
-  backdrop-filter: blur(10px);
-  border: 2px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  text-align: center;
+  padding: clamp(1rem, 2vw, 2rem);
+  border-radius: clamp(10px, 2vw, 20px);
 }
 
 .stat-icon {
-  font-size: 3.5rem;
-  margin-bottom: 1.5rem;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  margin-bottom: clamp(0.8rem, 1.5vw, 1.5rem);
 }
 
 .stat-info h3 {
-  font-size: 1.8rem;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1rem;
-  font-weight: 600;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
+  margin-bottom: clamp(0.5rem, 1vw, 1rem);
 }
 
 .stat-number {
-  font-size: 3rem;
-  font-weight: 800;
-  background: linear-gradient(45deg, #FF1493, #FF69B4);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  font-size: clamp(1.8rem, 3vw, 3rem);
 }
 
 .stats-details {
-  padding: 2rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  margin: 3rem auto;
+  padding: clamp(1rem, 2vw, 2rem);
+  border-radius: clamp(10px, 2vw, 20px);
+  margin: clamp(1.5rem, 3vw, 3rem) auto;
   max-width: 900px;
+  width: 95%;
 }
 
 .stats-details h3 {
-  font-size: 2.2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 
 .goal-progress-item {
-  margin-bottom: 2rem;
-  padding: 1.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
+  padding: clamp(0.8rem, 1.5vw, 1.5rem);
+  border-radius: clamp(8px, 1.5vw, 15px);
 }
 
 .goal-progress-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .goal-name {
-  font-size: 1.6rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.9);
+  font-size: clamp(1rem, 1.8vw, 1.6rem);
+  max-width: 70%;
+  word-wrap: break-word;
 }
 
 .goal-percentage {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #FF1493;
+  font-size: clamp(1.2rem, 2vw, 1.8rem);
 }
 
 .progress-bar-container {
-  height: 16px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  overflow: hidden;
-  margin-top: 1rem;
+  height: clamp(8px, 1.5vw, 16px);
+  border-radius: clamp(4px, 0.75vw, 8px);
 }
 
 .progress-bar {
-  height: 100%;
-  border-radius: 8px;
-  position: relative;
-}
-
-.progress-glow {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  filter: blur(10px);
-  opacity: 0.7;
+  border-radius: clamp(4px, 0.75vw, 8px);
 }
 
 .chart-section {
-  margin: 4rem auto;
-  padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  margin: clamp(2rem, 4vw, 4rem) auto;
+  padding: clamp(1rem, 2.5vw, 2.5rem);
+  border-radius: clamp(10px, 2vw, 20px);
   max-width: 1000px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  width: 95%;
 }
 
 .chart-section h3 {
-  font-size: 2.2rem;
-  text-align: center;
-  margin-bottom: 2rem;
-  color: rgba(255, 255, 255, 0.9);
-  font-weight: 700;
+  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  margin-bottom: clamp(1rem, 2vw, 2rem);
 }
 
 .chart-container {
-  margin-top: 2rem;
-  height: 400px;
-  padding: 1rem;
+  height: clamp(250px, 50vw, 400px);
+  width: 100%;
+  padding: clamp(0.5rem, 1vw, 1rem);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
   .statistics-container {
-    padding: 2rem 1rem;
+    padding: 1rem;
+    width: 98%;
   }
 
-  .stats-header h2 {
-    font-size: 2.8rem;
+  .stats-summary {
+    gap: 1rem;
+    padding: 0;
   }
 
-  .stat-card {
-    padding: 1.5rem;
-  }
-
-  .stat-number {
-    font-size: 2.5rem;
+  .goal-progress-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .goal-name {
-    font-size: 1.4rem;
+    max-width: 100%;
+    margin-bottom: 0.3rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+  }
+
+  .chart-section {
+    padding: 1rem;
+  }
+
+  .chart-container {
+    padding: 0.5rem;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-details, 
+  .chart-section {
+    width: 98%;
+  }
+}
+
+/* Safari için fix */
+@supports (-webkit-touch-callout: none) {
+  .stat-card,
+  .stats-details,
+  .chart-section {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.08);
   }
 } 
