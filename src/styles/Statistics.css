@@ -1,3 +1,16 @@
+/* Root ve body için kesin kurallar */
+html, 
+body, 
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: #1a1a1a;
+  position: relative;
+}
+
 .statistics-container {
   padding: clamp(1rem, 3vw, 3rem);
   background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
@@ -6,7 +19,12 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 95%;
-  overflow: hidden;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+.statistics-container * {
+  box-sizing: border-box;
 }
 
 .stats-header {
@@ -117,45 +135,148 @@
   padding: clamp(0.5rem, 1vw, 1rem);
 }
 
-@media (max-width: 480px) {
+/* iPhone için özel media query */
+@media only screen 
+and (device-width: 430px) 
+and (device-height: 932px) 
+and (-webkit-device-pixel-ratio: 3),
+/* iPhone 16 Pro Max ve benzer modern iPhone'lar için */
+(max-width: 430px) {
+  body,
+  #root {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
   .statistics-container {
-    padding: 1rem;
-    width: 98%;
+    width: 100%;
+    margin: 0;
+    padding: 0.5rem;
+    border-radius: 0;
+    min-height: 100vh;
+    box-sizing: border-box;
   }
 
   .stats-summary {
-    gap: 1rem;
+    width: calc(100% - 1rem);
+    margin: 1rem auto;
     padding: 0;
   }
 
-  .goal-progress-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .goal-name {
-    max-width: 100%;
-    margin-bottom: 0.3rem;
-  }
-
   .stat-card {
+    width: 100%;
+    margin: 0.5rem auto;
     padding: 1rem;
   }
 
+  .stats-details,
   .chart-section {
+    width: calc(100% - 1rem);
+    margin: 1rem auto;
     padding: 1rem;
+    border-radius: 15px;
   }
 
   .chart-container {
-    padding: 0.5rem;
-    margin-top: 1rem;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+  }
+}
+
+/* Safe area insets için iPhone desteği */
+@supports (padding: max(0px)) {
+  .statistics-container {
+    padding-left: max(0.5rem, env(safe-area-inset-left));
+    padding-right: max(0.5rem, env(safe-area-inset-right));
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
   }
 }
 
 @media (max-width: 768px) {
+  body,
+  #root {
+    width: 100vw;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .statistics-container {
+    width: 100%;
+    min-height: 100vh;
+    border-radius: 0;
+    padding: 1rem;
+    margin: 0;
+  }
+
+  .stats-summary {
+    width: 100%;
+    padding: 0;
+    margin: 1rem 0;
+  }
+
+  .stat-card {
+    width: 100%;
+    margin: 0;
+  }
+
   .stats-details, 
   .chart-section {
-    width: 98%;
+    width: 100%;
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .goal-progress-item {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .goal-name {
+    font-size: 1rem;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .chart-container {
+    width: 100%;
+    overflow-x: hidden;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics-container {
+    padding: 0.5rem;
+  }
+
+  .stats-header h2 {
+    font-size: 1.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .stats-subtitle {
+    font-size: 1rem;
+  }
+
+  .stat-number {
+    font-size: 1.5rem;
+  }
+
+  .goal-progress-header {
+    padding: 0 0.5rem;
+  }
+
+  .progress-bar-container {
+    margin: 0.5rem 0;
+  }
+
+  .chart-section h3 {
+    font-size: 1.5rem;
+    padding: 0 0.5rem;
   }
 }
 
