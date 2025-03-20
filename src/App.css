@@ -106,20 +106,20 @@ body {
   border-bottom: 1px solid var(--border-color);
   transition: all 0.3s ease;
   position: fixed;
-  top: 64px;
+  top: 64px; /* top-nav'ın yüksekliği */
   left: 0;
   right: 0;
-  z-index: 998;
+  z-index: 998; /* floating button'dan düşük ama diğerlerinden yüksek */
   box-shadow: 0 2px 4px var(--shadow-color);
   transform: translateY(-150%);
   opacity: 0;
-  visibility: hidden;
+  visibility: hidden; /* Görünürlük eklendi */
 }
 
 .top-menu.open {
   transform: translateY(0);
   opacity: 1;
-  visibility: visible;
+  visibility: visible; /* Görünür yapıldı */
 }
 
 .menu-items {
@@ -130,7 +130,7 @@ body {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; /* Menü öğeleri ortalandı */
   align-items: center;
   box-sizing: border-box;
 }
@@ -143,7 +143,7 @@ body {
   text-decoration: none;
   transition: all 0.3s ease;
   text-align: center;
-  min-width: 120px;
+  min-width: 120px; /* Minimum genişlik */
 }
 
 .menu-item:hover {
@@ -368,7 +368,7 @@ h2 {
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  background: #FF1493;
+  background: #FF1493; /* Fuşya renk */
   color: white;
   border: none;
   font-size: 1.5rem;
@@ -383,7 +383,7 @@ h2 {
 
 .floating-add-button:hover {
   transform: scale(1.1);
-  background: #FF69B4;
+  background: #FF69B4; /* Hover'da daha açık fuşya */
   box-shadow: 0 4px 12px rgba(255, 20, 147, 0.6);
 }
 
@@ -506,7 +506,7 @@ h2 {
   border-color: var(--text-primary);
 }
 
-/* Responsive adjustments */
+/* Responsive ayarlamalar */
 @media screen and (min-width: 1400px) {
   .goals-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -556,7 +556,7 @@ h2 {
   }
 
   .circle {
-    width: 20px;
+    width: 20px; /* Mobilde biraz daha büyük circle'lar */
     height: 20px;
   }
 
@@ -565,7 +565,7 @@ h2 {
   }
 }
 
-/* For small mobile devices */
+/* Küçük mobil cihazlar için */
 @media screen and (max-width: 380px) {
   .modern-container {
     padding: 0.8rem;
@@ -593,7 +593,7 @@ h2 {
   }
 }
 
-/* For landscape mobile view */
+/* Yatay mobil görünüm için */
 @media screen and (max-height: 500px) and (orientation: landscape) {
   .modern-container {
     margin: 60px auto 1rem;
@@ -603,16 +603,17 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+
 }
 
-/* Additional shadow settings for dark mode */
+/* Dark mode uyumluluğu için ek gölge ayarları */
 @media (prefers-color-scheme: dark) {
   .goal-card {
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   }
 }
 
-/* Animation improvements */
+/* Animasyon iyileştirmeleri */
 .top-menu {
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -622,7 +623,7 @@ h2 {
   background: var(--menu-item-hover);
 }
 
-/* Dark mode compatibility */
+/* Dark mode uyumluluğu */
 .dark-mode .goal-card {
   background: var(--card-bg);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);

@@ -118,34 +118,16 @@ function Statistics({ goals }) {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          gap: '2rem',
-          padding: '1rem'
-        }}
       >
         <motion.div 
           className="stats-header" 
           variants={itemVariants}
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-            textAlign: 'center'
-          }}
         >
           <h2>Goal Statistics</h2>
           <p className="stats-subtitle">Monthly Performance Analysis</p>
         </motion.div>
 
-        <div className="stats-summary" style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          gap: '1rem',
-          justifyContent: 'center'
-        }}>
+        <div className="stats-summary">
           {[
             { icon: '🎯', title: 'Total Goals', value: totalGoals, color: '#6366f1' },
             { icon: '✅', title: 'Completed Days', value: completedDays, color: '#22c55e' },
@@ -156,24 +138,9 @@ function Statistics({ goals }) {
               className="stat-card"
               variants={itemVariants}
               whileHover={{ scale: 1.03 }}
-              style={{
-                flex: '1 1 250px',
-                maxWidth: '350px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1rem',
-                padding: '1rem',
-                background: `linear-gradient(135deg, ${stat.color}20, ${stat.color}05)`,
-                border: `2px solid ${stat.color}30`,
-                borderRadius: '12px'
-              }}
             >
               <div className="stat-icon">{stat.icon}</div>
-              <div className="stat-info" style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0.5rem'
-              }}>
+              <div className="stat-info">
                 <h3>{stat.title}</h3>
                 <p className="stat-value" style={{color: stat.color}}>{stat.value}</p>
               </div>
@@ -184,24 +151,12 @@ function Statistics({ goals }) {
         <motion.div 
           variants={itemVariants}
           className="chart-section"
-          style={{
-            background: 'var(--card-bg)',
-            padding: '1.5rem',
-            borderRadius: '16px',
-            height: '400px'
-          }}
         >
-          <h3 style={{marginBottom: '1rem'}}>All Goals Comparison</h3>
+          <h3>All Goals Comparison</h3>
           <Line data={combinedChartData} options={chartOptions} />
         </motion.div>
 
-        <div className="individual-stats" style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          gap: '1.5rem',
-          justifyContent: 'center'
-        }}>
+        <div className="individual-stats">
           {goals.map((goal) => {
             const completed = goal.circles.filter(circle => circle).length;
             const percentage = ((completed / 31) * 100).toFixed(1);
@@ -222,25 +177,11 @@ function Statistics({ goals }) {
               <motion.div 
                 key={goal.id}
                 variants={itemVariants}
-                style={{
-                  flex: '1 1 300px',
-                  maxWidth: '450px',
-                  background: 'var(--card-bg)',
-                  padding: '1.5rem',
-                  borderRadius: '16px',
-                  border: `2px solid ${goal.color}30`,
-                  display: 'flex',
-                  flexDirection: 'column',
-                  gap: '1rem'
-                }}
+                className="individual-stat-card"
               >
                 <h3 style={{color: goal.color}}>{goal.text}</h3>
                 
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  gap: '1rem'
-                }}>
+                <div className="metrics-container">
                   <div className="metric">
                     <span>Completed</span>
                     <h4 style={{color: goal.color}}>{completed}</h4>
@@ -255,7 +196,7 @@ function Statistics({ goals }) {
                   </div>
                 </div>
 
-                <div style={{height: '200px'}}>
+                <div className="chart-container">
                   <Line data={individualChartData} options={{...chartOptions, plugins: {...chartOptions.plugins, legend: {display: false}}}} />
                 </div>
               </motion.div>
