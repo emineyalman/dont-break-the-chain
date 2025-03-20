@@ -5,7 +5,7 @@ import Statistics from './components/Statistics'
 import GoalCard from './components/GoalCard'
 import GoalForm from './components/GoalForm'
 
-function App() {
+function MainApp() {
   const defaultColors = [
     '#FF6B6B', '#4ECDC4', '#45B7D1', '#96CEB4', '#FFEEAD',
     '#D4A5A5', '#9B59B6', '#3498DB', '#E67E22', '#2ECC71'
@@ -25,7 +25,7 @@ function App() {
     return savedMode ? JSON.parse(savedMode) : window.matchMedia('(prefers-color-scheme: dark)').matches
   })
 
-  // LocalStorage kaydetme
+  // Save to localStorage
   useEffect(() => {
     localStorage.setItem('goals', JSON.stringify(goals))
   }, [goals])
@@ -35,12 +35,12 @@ function App() {
     document.documentElement.className = darkMode ? 'dark-mode' : 'light-mode'
   }, [darkMode])
 
-  // Bugünün tarihini al
+  // Get today's date
   const today = new Date()
   const currentDay = today.getDate()
   const currentMonth = today.getMonth()
 
-  // Ayın günlerini oluştur
+  // Create days of month
   const getDaysInMonth = (month, year) => {
     return new Date(year, month + 1, 0).getDate()
   }
@@ -48,8 +48,8 @@ function App() {
   const daysInMonth = getDaysInMonth(currentMonth, today.getFullYear())
 
   const monthNames = [
-    "Ocak", "Şubat", "Mart", "Nisan", "Mayıs", "Haziran",
-    "Temmuz", "Ağustos", "Eylül", "Ekim", "Kasım", "Aralık"
+    "January", "February", "March", "April", "May", "June",
+    "July", "August", "September", "October", "November", "December"
   ]
 
   const addGoal = (newGoal) => {
@@ -69,7 +69,7 @@ function App() {
   };
 
   const deleteGoal = (goalId) => {
-    if (confirm('Bu hedefi silmek istediğinizden emin misiniz?')) {
+    if (confirm('Are you sure you want to delete this goal?')) {
       setGoals(goals.filter(goal => goal.id !== goalId))
     }
   }
@@ -82,7 +82,7 @@ function App() {
             <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
               ☰
             </button>
-            <h1>2025'DE ZİNCİRİ KIRMA</h1>
+            <h1>DON'T BREAK THE CHAIN IN 2025</h1>
           </div>
           <div className="nav-right">
             <button 
@@ -102,8 +102,8 @@ function App() {
 
         <div className={`top-menu ${menuOpen ? 'open' : ''}`}>
           <div className="menu-items">
-            <Link to="/" className="menu-item" onClick={() => setMenuOpen(false)}>Hedefler</Link>
-            <Link to="/statistics" className="menu-item" onClick={() => setMenuOpen(false)}>İstatistikler</Link>
+            <Link to="/" className="menu-item" onClick={() => setMenuOpen(false)}>Goals</Link>
+            <Link to="/statistics" className="menu-item" onClick={() => setMenuOpen(false)}>Statistics</Link>
           </div>
         </div>
 
@@ -138,4 +138,4 @@ function App() {
   )
 }
 
-export default App
+export default MainApp

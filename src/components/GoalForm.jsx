@@ -28,23 +28,24 @@ function GoalForm({ onSubmit, onClose }) {
     <div className="modal-overlay" onClick={onClose}>
       <div className="goal-form-modal" onClick={e => e.stopPropagation()}>
         <form onSubmit={handleSubmit} className="goal-form">
-          <h2>Yeni Hedef Ekle</h2>
+          <h2>Add New Goal</h2>
           
           <div className="form-group">
-            <label htmlFor="text">Hedef Adı:</label>
+            <label htmlFor="text">Goal Name:</label>
             <input
               type="text"
               id="text"
               value={text}
               onChange={(e) => setText(e.target.value)}
-              placeholder="Hedef adını girin"
+              placeholder="Enter goal name"
               required
               autoFocus
+              className="form-input"
             />
           </div>
 
           <div className="form-group">
-            <label htmlFor="color">Renk:</label>
+            <label htmlFor="color">Color:</label>
             <input
               type="color"
               id="color"
@@ -55,21 +56,22 @@ function GoalForm({ onSubmit, onClose }) {
           </div>
 
           <div className="form-group">
-            <label htmlFor="startDate">Başlangıç Tarihi:</label>
+            <label htmlFor="startDate">Start Date:</label>
             <input
               type="date"
               id="startDate"
               value={startDate}
               onChange={(e) => setStartDate(e.target.value)}
+              className="form-input"
             />
           </div>
 
           <div className="form-buttons">
             <button type="button" onClick={onClose} className="cancel-button">
-              İptal
+              Cancel
             </button>
             <button type="submit" className="submit-button">
-              Ekle
+              Add
             </button>
           </div>
         </form>
@@ -78,4 +80,4 @@ function GoalForm({ onSubmit, onClose }) {
   );
 }
 
-export default GoalForm; 
+export default GoalForm;

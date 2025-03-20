@@ -1,42 +1,42 @@
 import React from 'react';
 
 function GoalCard({ goal, onDelete, toggleCircle, currentDay }) {
-  // Ay isimleri
+  // Month names
   const months = [
-    "OCAK", "ŞUBAT", "MART", "NİSAN", "MAYIS", "HAZİRAN",
-    "TEMMUZ", "AĞUSTOS", "EYLÜL", "EKİM", "KASIM", "ARALIK"
+    "JANUARY", "FEBRUARY", "MARCH", "APRIL", "MAY", "JUNE",
+    "JULY", "AUGUST", "SEPTEMBER", "OCTOBER", "NOVEMBER", "DECEMBER"
   ];
 
-  // Şu anki ay ve gün
+  // Current month and day
   const currentDate = new Date();
   const currentMonth = currentDate.getMonth();
   const currentMonthName = months[currentMonth];
   
-  // Ayın ilk gününü al
+  // Get first day of month
   const firstDayOfMonth = new Date(currentDate.getFullYear(), currentMonth, 1);
   const startingDay = firstDayOfMonth.getDay();
-  // Pazar 0 olduğu için Pazartesi 1 olacak şekilde ayarla
+  // Adjust so Monday is 1 (Sunday is 0)
   const adjustedStartingDay = startingDay === 0 ? 6 : startingDay - 1;
 
-  // Ayın toplam gün sayısı
+  // Total days in month
   const daysInMonth = new Date(currentDate.getFullYear(), currentMonth + 1, 0).getDate();
 
-  // Takvim grid'ini oluştur
+  // Create calendar grid
   const calendarDays = [];
-  // Boş günleri ekle
+  // Add empty days
   for (let i = 0; i < adjustedStartingDay; i++) {
     calendarDays.push(null);
   }
-  // Ayın günlerini ekle
+  // Add month days
   for (let i = 1; i <= daysInMonth; i++) {
     calendarDays.push(i);
   }
 
-  // Doğru gün için tıklama işleyicisi
+  // Click handler for correct day
   const handleDayClick = (day) => {
     if (day) {
       const adjustedIndex = day + adjustedStartingDay - 1;
-      toggleCircle(goal.id, adjustedIndex); // Düzeltilmiş indeksi gönderiyoruz
+      toggleCircle(goal.id, adjustedIndex); // Send adjusted index
     }
   };
 
@@ -60,13 +60,13 @@ function GoalCard({ goal, onDelete, toggleCircle, currentDay }) {
           <div className="month-name">{currentMonthName}</div>
           <div className="calendar-grid">
             <div className="weekdays">
-              <div>Pt</div>
+              <div>Mo</div>
+              <div>Tu</div>
+              <div>We</div>
+              <div>Th</div>
+              <div>Fr</div>
               <div>Sa</div>
-              <div>Ça</div>
-              <div>Pe</div>
-              <div>Cu</div>
-              <div>Ct</div>
-              <div>Pa</div>
+              <div>Su</div>
             </div>
             <div className="days-grid">
               {calendarDays.map((day, index) => (
@@ -102,4 +102,4 @@ function GoalCard({ goal, onDelete, toggleCircle, currentDay }) {
   );
 }
 
-export default GoalCard; 
+export default GoalCard;
