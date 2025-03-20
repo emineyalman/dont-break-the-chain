@@ -82,7 +82,7 @@ function MainApp() {
             <button className="menu-toggle" onClick={() => setMenuOpen(!menuOpen)}>
               ☰
             </button>
-            <h1>DON'T BREAK THE CHAIN IN 2025</h1>
+            <h1>DON'T BREAK THE CHAIN IN 2025 🚀</h1>
           </div>
           <div className="nav-right">
             <button 
