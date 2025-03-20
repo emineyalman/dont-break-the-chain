@@ -114,6 +114,7 @@ body {
   transform: translateY(-150%);
   opacity: 0;
   visibility: hidden; /* Görünürlük eklendi */
+  height: 170px;
 }
 
 .top-menu.open {
@@ -133,6 +134,7 @@ body {
   justify-content: center; /* Menü öğeleri ortalandı */
   align-items: center;
   box-sizing: border-box;
+  height: 170px;
 }
 
 .menu-item {
@@ -603,6 +605,7 @@ h2 {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
+ 
 
 }
 
