@@ -582,6 +582,8 @@ h2 {
     grid-template-columns: 1fr;
     gap: 2rem;
     padding: 0.5rem;
+    margin-top: 3rem;
+
   }
 
   .goal-card {
@@ -600,6 +602,9 @@ h2 {
   .date-number {
     font-size: 0.7rem;
   }
+  .menu-items{
+    height: 220px;
+  }
 }
 
 /* Küçük mobil cihazlar için */
@@ -611,6 +616,8 @@ h2 {
   .goals-grid {
     gap: 1.5rem;
     padding: 0.3rem;
+    margin-top: 3rem;
+
   }
 
   .goal-card {
@@ -628,6 +635,9 @@ h2 {
   .date-number {
     font-size: 0.65rem;
   }
+  .menu-items{
+    height: 220px;
+  }
 }
 
 /* Yatay mobil görünüm için */
@@ -639,8 +649,11 @@ h2 {
   .goals-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
+    margin-top: 3rem;
   }
- 
+  .menu-items{
+    height: 220px;
+  }
 
 }
 
